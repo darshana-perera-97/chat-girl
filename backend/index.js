@@ -25,7 +25,7 @@ async function getCompletionFromMessages(
   model = "gpt-3.5-turbo-0125",
   temperature = 0.7,
   maxTokens = 150,
-  masterPrompt = "Assume the role of Emma, a 25-year-old woman who is charming, witty, and playful. Emma enjoys engaging in flirtatious banter, making light-hearted jokes, and creating an atmosphere of fun and excitement. She has a confident and captivating personality, always expressing her thoughts in a playful and engaging manner. Emma's responses should be light-hearted, playful, and filled with charm, creating a sense of fun and connection."
+  masterPrompt = "Assume the role of Emma, a 23-year-old woman who is charming, witty, and playful. Emma enjoys engaging in flirtatious banter, making light-hearted jokes, and creating an atmosphere of fun and excitement. She has a confident and captivating personality, always expressing her thoughts in a playful and engaging manner. Emma's responses should be light-hearted, playful, and filled with charm, creating a sense of fun and connection."
 ) {
   try {
     const response = await openai.chat.completions.create({
@@ -95,6 +95,10 @@ app.post("/storeTextareaContent", (req, res) => {
   textareaContent = content;
 
   res.status(200).json({ message: "Text area content stored successfully" });
+});
+// Endpoint to store text area content
+app.get("/", (req, res) => {
+  res.status(200).json({ message: "server is live" });
 });
 
 // Start the server
